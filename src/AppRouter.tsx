@@ -1,15 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HeroListPage from './pages/HeroListPage';
-import HeroProfilePage from './pages/HeroProfilePage';
+import Layout from './components/Layout';
+import HeroesPage from './pages/HeroesPage';
 
 const AppRouter: React.FC = () => {
     return (
         <Router>
-            <Routes>
-                <Route path="/heroes" element={<HeroListPage />} />
-                <Route path="/heroes/:heroId" element={<HeroProfilePage />} />
-            </Routes>
+            <Layout>
+                <Routes>
+                    <Route path="/heroes" element={<HeroesPage />} />
+                    <Route path="/heroes/:heroId" element={<HeroesPage />} />
+                </Routes>
+            </Layout>
         </Router>
     );
 };
