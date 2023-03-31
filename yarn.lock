@@ -3540,9 +3540,9 @@ css.escape@^1.5.1:
   integrity sha512-YUifsXXuknHlUsmlgyY0PKzgPOr7/FjCePfHNt0jxm83wHZi44VDMQ7/fGNkjY3/jV1MC+1CmZbaHzugyeRtpg==
 
 cssdb@^7.1.0:
-  version "7.5.2"
-  resolved "https://registry.yarnpkg.com/cssdb/-/cssdb-7.5.2.tgz#76332c46a2802b0e68f3fdfb3d3efe227aba560b"
-  integrity sha512-Xpu7Bf5Vlw+G7ikA2Lg/lVCRTSY8D5M5qFUgGNFyS4pa8ufGLyCBxIX/3if3krHlF1SKSfVPI/YsAWLDVEbocw==
+  version "7.5.3"
+  resolved "https://registry.yarnpkg.com/cssdb/-/cssdb-7.5.3.tgz#6bbd0c6a935919d7f78b8a3ce098faacda01ae8a"
+  integrity sha512-NQNRhrEnS6cW+RU/foLphb6xI/MDA70bI3Cy6VxJU8ilxgyTYz1X9zUzFGVTG5nGPylcKAGIt/UNc4deT56lQQ==
 
 cssesc@^3.0.0:
   version "3.0.0"
