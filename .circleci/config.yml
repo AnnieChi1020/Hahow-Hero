@@ -9,7 +9,7 @@ orbs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  version: 1
+  version: '16.10'
   build_all:    
     jobs:
       - build_all:
@@ -25,7 +25,7 @@ workflows:
             branches:
               only:
                 - develop
-   build_master:    
+  build_master:    
     jobs:
       - build_master:
           filters:
