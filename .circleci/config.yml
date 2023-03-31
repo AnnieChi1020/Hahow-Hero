@@ -13,7 +13,7 @@ jobs:
     steps:
       - checkout
       - node/install:
-          node-version: "16.10"
+          node-version: "12.22"
       - node/install-packages
       - run:
           command: yarn run test
@@ -25,4 +25,5 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
-     
+   
+
