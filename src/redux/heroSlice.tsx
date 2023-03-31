@@ -27,7 +27,7 @@ const initialState: HeroProps = {
 
 const heroSlice = createSlice({
     name: 'hero',
-    initialState: initialState,
+    initialState,
     reducers: {
         setHeroList(state, action) {
             state.heroList = action.payload;

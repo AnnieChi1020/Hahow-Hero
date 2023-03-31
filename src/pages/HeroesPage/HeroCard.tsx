@@ -5,35 +5,9 @@ import { Hero } from '../../redux/heroSlice';
 import Colors from '../../styles/Colors';
 import { H2 } from '../../styles/Fonts';
 
-export interface HeroCardProps {
+interface HeroCardProps {
     hero: Hero;
 }
-
-const HeroCard: React.FC<HeroCardProps> = (props) => {
-    const { id, name, image } = props.hero;
-
-    const navigate = useNavigate();
-    const { heroId } = useParams();
-
-    const isActive = !!(heroId && heroId === id);
-
-    return (
-        <Container
-            data-testid="hero-card-container"
-            onClick={() => navigate(`/heroes/${id}`)}
-            isActive={isActive}
-        >
-            <ImageContainer>
-                <Image src={image} />
-            </ImageContainer>
-            <TextContainer>
-                <H2>{name}</H2>
-            </TextContainer>
-        </Container>
-    );
-};
-
-export default HeroCard;
 
 const Container = styled.div<{ isActive: boolean }>`
     width: 100%;
@@ -73,3 +47,30 @@ const Image = styled.img`
 `;
 
 const TextContainer = styled.div``;
+
+function HeroCard(props: HeroCardProps) {
+    const { hero } = props;
+    const { id, name, image } = hero;
+
+    const navigate = useNavigate();
+    const { heroId } = useParams();
+
+    const isActive = !!(heroId && heroId === id);
+
+    return (
+        <Container
+            data-testid="hero-card-container"
+            onClick={() => navigate(`/heroes/${id}`)}
+            isActive={isActive}
+        >
+            <ImageContainer>
+                <Image src={image} />
+            </ImageContainer>
+            <TextContainer>
+                <H2>{name}</H2>
+            </TextContainer>
+        </Container>
+    );
+}
+
+export default HeroCard;

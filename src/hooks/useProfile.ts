@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { getHeroProfile } from '../redux/heroAction';
 import { HeroProfile } from '../redux/heroSlice';
 import { updateHeroProfile } from '../utils/api';
 import { useAppDispatch, useAppSelector } from '../utils/hooks';
-import { toast } from 'react-toastify';
 
 export interface Stats extends HeroProfile {
     rest: number;

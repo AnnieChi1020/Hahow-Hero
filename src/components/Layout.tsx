@@ -1,15 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    return (
-        <Container>
-            <MainContainer>{children}</MainContainer>
-        </Container>
-    );
-};
-
-export default Layout;
+interface LayoutProps {
+    children: React.ReactNode;
+}
 
 const Container = styled.div`
     width: 100%;
@@ -22,3 +16,14 @@ const MainContainer = styled.div`
     margin: auto;
     padding-top: 60px;
 `;
+
+function Layout(props: LayoutProps) {
+    const { children } = props;
+    return (
+        <Container>
+            <MainContainer>{children}</MainContainer>
+        </Container>
+    );
+}
+
+export default Layout;
