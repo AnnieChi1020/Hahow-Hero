@@ -8,6 +8,7 @@ const useHeroes = () => {
 
     const dispatch = useAppDispatch();
 
+    // Get hero list from server and update redux store
     useEffect(() => {
         dispatch(getHeroList());
     }, [dispatch]);

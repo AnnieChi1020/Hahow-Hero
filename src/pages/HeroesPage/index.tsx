@@ -5,15 +5,19 @@ import StatsPanel from './StatsPanel';
 import Colors from '../../styles/Colors';
 import useHeroes from '../../hooks/useHeroes';
 import useProfile from '../../hooks/useProfile';
+import { useParams } from 'react-router-dom';
 
 const HeroesPage: React.FC = () => {
     const heroList = useHeroes();
     const { stats, setStats, handleOnSaveProfile } = useProfile();
 
+    const { heroId } = useParams();
+    const showProfile = heroId && stats;
+
     return (
         <Container>
             <HeroList heroList={heroList} />
-            {stats && (
+            {showProfile && (
                 <ProfileContainer>
                     <StatsPanel
                         stats={stats}

@@ -19,16 +19,19 @@ const useProfile = () => {
 
     const dispatch = useAppDispatch();
 
+    // Get hero profile from server and update redux store
     const updateProfile = useCallback(() => {
         if (heroId) {
             dispatch(getHeroProfile(heroId));
         }
     }, [dispatch, heroId]);
 
+    // Update profile when heroId changed
     useEffect(() => {
         updateProfile();
     }, [updateProfile]);
 
+    // Update stats when heroId or heroProfiles changed
     useEffect(() => {
         if (!heroId || !heroProfiles[heroId]) return;
         setStats({ ...heroProfiles[heroId], rest: 0 });
