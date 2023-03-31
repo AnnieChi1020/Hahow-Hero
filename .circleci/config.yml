@@ -6,29 +6,23 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
 
+jobs: 
+  build-and-test:
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - checkout
+      - node/install:
+          node-version: "16.10"
+      - node/install-packages
+      - run:
+          command: yarn run test
+
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  version: '16.10'
-  build_all:    
+  build-and-test: # This is the name of the workflow, feel free to change it to better match your workflow.
+    # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - build_all:
-          filters:
-            branches:
-              ignore:
-                - develop
-                - master
-  build_dev:    
-    jobs:
-      - build_dev:
-          filters:
-            branches:
-              only:
-                - develop
-  build_master:    
-    jobs:
-      - build_master:
-          filters:
-            branches:
-              only:
-                - master
+      - build-and-test
+     
