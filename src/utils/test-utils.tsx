@@ -11,7 +11,7 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
     store?: AppStore;
 }
 
-export function renderWithProviders(
+function renderWithProviders(
     ui: React.ReactElement,
     {
         preloadedState = { hero: { heroList: [], heroProfiles: {} } },
@@ -29,3 +29,5 @@ export function renderWithProviders(
     // Return an object with the store and all of RTL's query functions
     return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }
+
+export default renderWithProviders;

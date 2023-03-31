@@ -6,13 +6,27 @@ import { HeroProfile } from '../../redux/heroSlice';
 import { H2 } from '../../styles/Fonts';
 import StatItem from './StatItem';
 
-type Props = {
+interface StatsPanelProps {
     stats: Stats;
     setStats: (stats: Stats) => void;
     handleOnSaveProfile: (profile: HeroProfile) => void;
-};
+}
 
-const StatsPanel: React.FC<Props> = (props) => {
+const Container = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
+
+const LeftContainer = styled.div``;
+
+const RightContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 20px;
+`;
+
+function StatsPanel(props: StatsPanelProps) {
     const { stats, setStats, handleOnSaveProfile } = props;
 
     const handleIncrement = (type: keyof Stats) => {
@@ -62,20 +76,6 @@ const StatsPanel: React.FC<Props> = (props) => {
             </RightContainer>
         </Container>
     );
-};
+}
 
 export default StatsPanel;
-
-const Container = styled.div`
-    display: flex;
-    justify-content: space-between;
-`;
-
-const LeftContainer = styled.div``;
-
-const RightContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 20px;
-`;

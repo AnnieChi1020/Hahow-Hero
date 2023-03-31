@@ -4,32 +4,13 @@ import Colors from '../../styles/Colors';
 import { H3 } from '../../styles/Fonts';
 import Button from '../../components/Button';
 
-type StatItemProps = {
+interface StatItemProps {
     label: string;
     point: number;
     handleIncrement: () => void;
     handleDecrement: () => void;
     restPoint: number;
-};
-
-const StatItem: React.FC<StatItemProps> = (props) => {
-    const { label, point, handleIncrement, handleDecrement, restPoint } = props;
-
-    return (
-        <Container>
-            <StateLabel>{label}</StateLabel>
-            <Button onClick={handleDecrement} disabled={point <= 0}>
-                <ButtonText>-</ButtonText>
-            </Button>
-            <StatePoint>{point}</StatePoint>
-            <Button onClick={handleIncrement} disabled={restPoint <= 0}>
-                <ButtonText>+</ButtonText>
-            </Button>
-        </Container>
-    );
-};
-
-export default StatItem;
+}
 
 const Container = styled.div`
     width: 100%;
@@ -50,3 +31,22 @@ const StatePoint = styled(H3)`
 const ButtonText = styled(H3)`
     color: ${Colors.gray1};
 `;
+
+function StatItem(props: StatItemProps) {
+    const { label, point, handleIncrement, handleDecrement, restPoint } = props;
+
+    return (
+        <Container>
+            <StateLabel>{label}</StateLabel>
+            <Button onClick={handleDecrement} disabled={point <= 0}>
+                <ButtonText>-</ButtonText>
+            </Button>
+            <StatePoint>{point}</StatePoint>
+            <Button onClick={handleIncrement} disabled={restPoint <= 0}>
+                <ButtonText>+</ButtonText>
+            </Button>
+        </Container>
+    );
+}
+
+export default StatItem;

@@ -8,18 +8,6 @@ interface ButtonProps {
     disabled?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = (props) => {
-    const { onClick, children, disabled } = props;
-
-    return (
-        <Btn onClick={onClick} disabled={disabled || false}>
-            {children}
-        </Btn>
-    );
-};
-
-export default Button;
-
 const Btn = styled.button<{ disabled: boolean }>`
     min-width: 40px;
     min-height: 40px;
@@ -36,3 +24,19 @@ const Btn = styled.button<{ disabled: boolean }>`
         transform: scale(${({ disabled }) => (disabled ? 1 : 0.95)};);
     }
 `;
+
+function Button(props: ButtonProps) {
+    const { onClick, children, disabled } = props;
+
+    return (
+        <Btn onClick={onClick} disabled={disabled || false}>
+            {children}
+        </Btn>
+    );
+}
+
+export default Button;
+
+Button.defaultProps = {
+    disabled: false,
+};

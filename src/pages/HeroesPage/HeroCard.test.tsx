@@ -1,5 +1,4 @@
 import React from 'react';
-import HeroCard from './HeroCard';
 import {
     render,
     fireEvent,
@@ -8,6 +7,7 @@ import {
     getByTestId,
 } from '@testing-library/react';
 import { useNavigate, useParams } from 'react-router-dom';
+import HeroCard from './HeroCard';
 import Colors from '../../styles/Colors';
 
 jest.mock('react-router-dom', () => ({

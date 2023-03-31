@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import HeroesPage from './pages/HeroesPage';
 
-const AppRouter: React.FC = () => {
+function AppRouter() {
     return (
         <Router>
             <Layout>
@@ -14,6 +14,6 @@ const AppRouter: React.FC = () => {
             </Layout>
         </Router>
     );
-};
+}
 
 export default AppRouter;
