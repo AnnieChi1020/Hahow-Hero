@@ -11,7 +11,7 @@ jobs:
       - node/install-packages
       - run:
           name: Install dependencies
-          command: yarn install
+          command: npm install
       - run:
           name: Run tests
-          command: yarn test
+          command: npm test
