@@ -4,6 +4,7 @@ import { getHeroProfile } from '../redux/heroAction';
 import { HeroProfile } from '../redux/heroSlice';
 import { updateHeroProfile } from '../utils/api';
 import { useAppDispatch, useAppSelector } from '../utils/hooks';
+import { toast } from 'react-toastify';
 
 export interface Stats extends HeroProfile {
     rest: number;
@@ -40,10 +41,10 @@ const useProfile = () => {
 
         const isUpdated = await updateHeroProfile(heroId, newProfile);
         if (isUpdated) {
-            alert('Profile updated successfully!');
+            toast.success('儲存成功！');
             updateProfile();
         } else {
-            alert('Profile updated failed!');
+            toast.error(`儲存失敗！您還有剩餘點數：${stats?.rest}點`);
         }
     };
 
