@@ -8,9 +8,8 @@ const HeroList: React.FC<{ heroList: Hero[] }> = (props) => {
 
     return (
         <Container>
-            {heroList.map((h) => (
-                <HeroCard key={h.id} hero={h} />
-            ))}
+            {heroList.length > 0 &&
+                heroList.map((h) => <HeroCard key={h.id} hero={h} />)}
         </Container>
     );
 };

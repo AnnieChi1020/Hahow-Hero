@@ -5,7 +5,11 @@ import { Hero } from '../../redux/heroSlice';
 import Colors from '../../styles/Colors';
 import { H2 } from '../../styles/Fonts';
 
-const HeroCard: React.FC<{ hero: Hero }> = (props) => {
+export interface HeroCardProps {
+    hero: Hero;
+}
+
+const HeroCard: React.FC<HeroCardProps> = (props) => {
     const { id, name, image } = props.hero;
 
     const navigate = useNavigate();
@@ -15,6 +19,7 @@ const HeroCard: React.FC<{ hero: Hero }> = (props) => {
 
     return (
         <Container
+            data-testid="hero-card-container"
             onClick={() => navigate(`/heroes/${id}`)}
             isActive={isActive}
         >
