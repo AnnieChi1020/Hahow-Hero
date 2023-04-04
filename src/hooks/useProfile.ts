@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { getHeroProfile } from '../redux/heroAction';
 import { HeroProfile } from '../redux/heroSlice';
 import { updateHeroProfile } from '../utils/api';
-import { useAppDispatch, useAppSelector } from '../utils/hooks';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
 export interface Stats extends HeroProfile {
     rest: number;
