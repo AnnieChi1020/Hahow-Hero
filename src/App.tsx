@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { ToastContainer, Flip } from 'react-toastify';
+import AppRouter from './AppRouter';
+import { GlobalStyle, ResetStyle } from './styles/globalStyle';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <ResetStyle />
+            <GlobalStyle />
+            <AppRouter />
+            <ToastContainer
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss={false}
+                draggable={false}
+                pauseOnHover
+                transition={Flip}
+            />
+        </div>
+    );
 }
 
 export default App;
