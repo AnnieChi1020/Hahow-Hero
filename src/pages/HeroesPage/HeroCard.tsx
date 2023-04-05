@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Hero } from '../../redux/heroSlice';
 import Colors from '../../styles/Colors';
-import { H2 } from '../../styles/Fonts';
+import { H2 } from '../../styles/Typography';
 
 interface HeroCardProps {
     hero: Hero;

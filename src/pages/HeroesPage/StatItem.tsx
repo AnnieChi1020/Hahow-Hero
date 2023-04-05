@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Colors from '../../styles/Colors';
-import { H3 } from '../../styles/Fonts';
+import { H3 } from '../../styles/Typography';
 import Button from '../../components/Button';
 
 interface StatItemProps {
