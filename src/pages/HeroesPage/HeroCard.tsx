@@ -3,14 +3,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Hero } from '../../redux/heroSlice';
 import Colors from '../../styles/Colors';
-import { H2 } from '../../styles/Fonts';
+import { H2 } from '../../styles/Typography';
 
 interface HeroCardProps {
     hero: Hero;
 }
 
 const Container = styled.div<{ isActive: boolean }>`
-    flex: 1 1 240px;
+    width: 100%;
     padding: 20px;
     border-radius: 12px;
     background-color: ${({ isActive }) =>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Colors from '../../styles/Colors';
-import { H3 } from '../../styles/Fonts';
+import { H3 } from '../../styles/Typography';
 import Button from '../../components/Button';
 
 interface StatItemProps {
@@ -17,6 +17,10 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     padding: 12px 0;
+
+    @media (max-width: 768px) {
+        justify-content: space-between;
+    }
 `;
 
 const StateLabel = styled(H3)`

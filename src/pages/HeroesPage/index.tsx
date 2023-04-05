@@ -7,7 +7,7 @@ import StatsPanel from './StatsPanel';
 import Colors from '../../styles/Colors';
 import useHeroes from '../../hooks/useHeroes';
 import useProfile from '../../hooks/useProfile';
-import { H3 } from '../../styles/Fonts';
+import { H3 } from '../../styles/Typography';
 
 const Container = styled.div`
     display: flex;
@@ -20,6 +20,10 @@ const ProfileContainer = styled.div`
     padding: 40px 60px;
     background-color: ${Colors.beige};
     border-radius: 12px;
+
+    @media (max-width: 768px) {
+        padding: 40px 40px;
+    }
 `;
 
 const SubContainer = styled.div`

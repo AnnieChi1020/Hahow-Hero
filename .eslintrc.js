@@ -52,5 +52,18 @@ module.exports = {
             1,
             { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
         ],
+        'import/no-extraneous-dependencies': [
+            'error',
+            {
+                devDependencies: [
+                    'test.{ts,tsx}', // Repos with a single test file
+                    'test-*.{ts,tsx}', // Repos with multiple top-level test files
+                    '**/*{.,_}{test,spec}.{ts,tsx}', // Tests where the extension or filename suffix denotes that it is a test
+                    '**/jest.config.ts', // Jest config
+                    '**/jest.setup.ts', // Jest setup
+                ],
+                optionalDependencies: false,
+            },
+        ],
     },
 };
