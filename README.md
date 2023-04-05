@@ -33,8 +33,6 @@ Requirement: [Hahow Front-End Assignment](https://github.com/hahow/hahow-recruit
 └── yarn.lock
 ```
 
-
-
 ## 使用到的第三方 library
 
 ### **@reduxjs/toolkit**
@@ -99,9 +97,17 @@ Requirement: [Hahow Front-End Assignment](https://github.com/hahow/hahow-recruit
 
 ## 遇到什麼狀況會寫註解
 
-- 大多是跟資料邏輯相關的會寫註解，幫助之後看 code 的人可以理解資料管理、更新的邏輯
-  - e.g. `useProfile.ts` 中，會註解資料更新的方式，以及更新的時機
-- 有些 test case 會加上註解，目的是幫助之後改 code 時還可以記得這邊想要測試的內容是什麼
+ 1. 說明比較複雜的邏輯：
+
+    像是跟資料邏輯相關的 code，幫助之後看 code 的人可以理解資料管理、更新的邏輯
+    e.g. `useProfile.ts` 中，會註解資料更新的方式、來源，以及更新的時機
+
+ 2. 有些 test case 會加上註解，目的是幫助之後改 code 時還可以記得這邊想要測試的內容是什麼
+
+ 3. 說明外部 API 的用途：
+
+    幫助紀錄 API 的使用方式，以及預期會收到的資料內容
+    e.g. `api.ts` 中，會用 JSDoc 說明 params 以及 return value
 
 ## 專案中你遇到的困難、問題，以及解決的方法
 
@@ -127,3 +133,8 @@ Requirement: [Hahow Front-End Assignment](https://github.com/hahow/hahow-recruit
   - 如果 store 中沒有 heroId 對應的 profile 資料，且 heroProfileIsFetching 為 true 的狀況下，才顯示 loading spinners
   - 如果 store 中有 heroId 對應的 profile 資料，則顯示 Profile 在畫面上
   - 如果 heroProfileIsFetching 為 false，且 store 中沒有 heroId 對應的 profile 資料，則顯示 "Cannot Find the Profile"
+
+## 可以優化的方向
+
+ 1. 把 test cases 寫的更完整
+ 2. 優化小畫面 Hero Profile Page 的 UI：現在 Profile 都在頁面的最下面，在小畫面時，會離 HeroCard 蠻遠的，用戶體驗比較不好

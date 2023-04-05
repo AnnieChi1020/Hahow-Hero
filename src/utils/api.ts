@@ -7,6 +7,10 @@ interface HeroProfileRes {
 
 const HERO_API = process.env.REACT_APP_HERO_API;
 
+/**
+ * Fetch heroes from server
+ * @returns {Hero[]} - hero list
+ */
 export const fetchHeroes = async (): Promise<Hero[]> => {
     const res = await fetch(`${HERO_API}/heroes`);
     if (res.status !== 200) {
@@ -16,6 +20,11 @@ export const fetchHeroes = async (): Promise<Hero[]> => {
     return data;
 };
 
+/**
+ * Fetch hero profile from server
+ * @param {string} heroId - hero id
+ * @returns {HeroProfileRes | undefined} - hero profile
+ */
 export const fetchHeroProfile = async (
     heroId: string
 ): Promise<HeroProfileRes | undefined> => {
@@ -29,6 +38,12 @@ export const fetchHeroProfile = async (
     return data;
 };
 
+/**
+ * Update hero profile to server
+ * @param {string} heroId - hero id
+ * @param {HeroProfile} profile - hero profile to be updated to server
+ * @returns {boolean} - true if update success, false if update failed
+ */
 export const updateHeroProfile = async (
     heroId: string,
     profile: HeroProfile
