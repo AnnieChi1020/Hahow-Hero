@@ -22,7 +22,8 @@ Requirement: [Hahow Front-End Assignment](https://github.com/hahow/hahow-recruit
 │   │   └── *.ts    
 │   ├── styles/       # style 相關，如 Colors、Typography
 │   ├── utils/        # 一些重複使用的工具函式
-│   │   └── **/*.ts           
+│   │   ├── *.tsx   
+│   │   └── *.ts           
 │   ├── App.js                
 │   └──index.js               
 ├── .eslintrc.js      # eslint 設定檔
