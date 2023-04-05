@@ -133,3 +133,8 @@ Requirement: [Hahow Front-End Assignment](https://github.com/hahow/hahow-recruit
   - 如果 store 中沒有 heroId 對應的 profile 資料，且 heroProfileIsFetching 為 true 的狀況下，才顯示 loading spinners
   - 如果 store 中有 heroId 對應的 profile 資料，則顯示 Profile 在畫面上
   - 如果 heroProfileIsFetching 為 false，且 store 中沒有 heroId 對應的 profile 資料，則顯示 "Cannot Find the Profile"
+
+## 可以優化的方向
+
+ 1. 把 test cases 寫的更完整
+ 2. 優化小畫面 Hero Profile Page 的 UI：現在 Profile 都在頁面的最下面，在小畫面時，會離 HeroCard 蠻遠的，用戶體驗比較不好
