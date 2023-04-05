@@ -7,7 +7,7 @@ import StatsPanel from './StatsPanel';
 import Colors from '../../styles/Colors';
 import useHeroes from '../../hooks/useHeroes';
 import useProfile from '../../hooks/useProfile';
-import { H3 } from '../../styles/Fonts';
+import { H3 } from '../../styles/Typography';
 
 const Container = styled.div`
     display: flex;

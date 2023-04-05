@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Button from '../../components/Button';
 import { Stats } from '../../hooks/useProfile';
 import { HeroProfile } from '../../redux/heroSlice';
-import { H3 } from '../../styles/Fonts';
+import { H3 } from '../../styles/Typography';
 import StatItem from './StatItem';
 
 interface StatsPanelProps {
