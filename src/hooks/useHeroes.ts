@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { getHeroList } from '../redux/heroAction';
 import { Hero } from '../redux/heroSlice';
-import { useAppDispatch, useAppSelector } from '../utils/hooks';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
 const useHeroes = () => {
     const heroList = useAppSelector((state) => state.hero.heroList);
