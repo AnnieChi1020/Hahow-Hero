@@ -35,6 +35,13 @@ const RightContainer = styled.div`
     }
 `;
 
+const Text = styled(H3)`
+    @media (max-width: 768px) {
+        font-size: 18px;
+        line-height: 24px;
+    }
+`;
+
 function StatsPanel(props: StatsPanelProps) {
     const { stats, setStats, handleOnSaveProfile } = props;
 
@@ -78,7 +85,7 @@ function StatsPanel(props: StatsPanelProps) {
                 ))}
             </div>
             <RightContainer>
-                <H3>{`剩餘點數: ${stats.rest}`}</H3>
+                <Text>{`剩餘點數: ${stats.rest}`}</Text>
                 <Button onClick={() => handleOnSaveProfile(statItems)}>
                     儲存
                 </Button>
