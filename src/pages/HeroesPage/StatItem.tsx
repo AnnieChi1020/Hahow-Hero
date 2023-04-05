@@ -23,16 +23,24 @@ const Container = styled.div`
     }
 `;
 
-const StateLabel = styled(H3)`
+const Text = styled(H3)`
+    @media (max-width: 768px) {
+        font-size: 18px;
+        line-height: 24px;
+    }
+`;
+
+const StateLabel = styled(Text)`
     width: 120px;
     text-align: left;
 `;
 
-const StatePoint = styled(H3)`
+const StatePoint = styled(Text)`
     width: 120px;
+    text-align: center;
 `;
 
-const ButtonText = styled(H3)`
+const ButtonText = styled(Text)`
     color: ${Colors.gray1};
 `;
 

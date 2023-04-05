@@ -46,6 +46,15 @@ const Image = styled.img`
     object-fit: cover;
 `;
 
+const Name = styled(H2)`
+    text-align: center;
+
+    @media (max-width: 768px) {
+        font-size: 24px;
+        line-height: 32px;
+    }
+`;
+
 function HeroCard(props: HeroCardProps) {
     const { hero } = props;
     const { id, name, image } = hero;
@@ -65,7 +74,7 @@ function HeroCard(props: HeroCardProps) {
                 <Image src={image} />
             </ImageContainer>
             <div>
-                <H2>{name}</H2>
+                <Name>{name}</Name>
             </div>
         </Container>
     );
