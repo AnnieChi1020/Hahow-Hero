@@ -11,7 +11,7 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
     store?: AppStore;
 }
 
-function renderWithProviders(
+export function renderWithProviders(
     ui: React.ReactElement,
     {
         preloadedState = { hero: { heroList: [], heroProfiles: {} } },
@@ -30,4 +30,16 @@ function renderWithProviders(
     return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }
 
-export default renderWithProviders;
+export function getWrapper() {
+    const preloadedState = { hero: { heroList: [], heroProfiles: {} } };
+    const store: AppStore = configureStore({
+        reducer: { hero: heroReducer },
+        preloadedState,
+    });
+
+    function Wrapper({ children }: PropsWithChildren): JSX.Element {
+        return <Provider store={store}>{children}</Provider>;
+    }
+
+    return Wrapper;
+}

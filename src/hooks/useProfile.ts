@@ -19,6 +19,12 @@ const useProfile = () => {
 
     const dispatch = useAppDispatch();
 
+    // Reset stats when heroId changed
+    useEffect(() => {
+        const resetStats = () => setStats(null);
+        resetStats();
+    }, [heroId]);
+
     // Get hero profile from server and update redux store
     const updateProfile = useCallback(() => {
         if (heroId) {
