@@ -10,7 +10,7 @@ interface HeroCardProps {
 }
 
 const Container = styled.div<{ isActive: boolean }>`
-    flex: 1 1 240px;
+    width: 100%;
     padding: 20px;
     border-radius: 12px;
     background-color: ${({ isActive }) =>
