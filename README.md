@@ -138,3 +138,4 @@ Requirement: [Hahow Front-End Assignment](https://github.com/hahow/hahow-recruit
 
  1. 把 test cases 寫的更完整
  2. 優化小畫面 Hero Profile Page 的 UI：現在 Profile 都在頁面的最下面，在小畫面時，會離 HeroCard 蠻遠的，用戶體驗比較不好
+ 3. 專案未來可能越來越大，可以使用 code splitting 來減少頁面載入時間和初始加載時間
