@@ -20,6 +20,10 @@ const ProfileContainer = styled.div`
     padding: 40px 60px;
     background-color: ${Colors.beige};
     border-radius: 12px;
+
+    @media (max-width: 768px) {
+        padding: 40px 40px;
+    }
 `;
 
 const SubContainer = styled.div`

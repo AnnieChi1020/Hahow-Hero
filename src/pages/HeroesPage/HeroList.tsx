@@ -8,9 +8,17 @@ interface HeroListProps {
 }
 
 const Container = styled.div`
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 24px;
+
+    @media (max-width: 976px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 576px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
 `;
 
 function HeroList(props: HeroListProps) {

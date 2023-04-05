@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Button from '../../components/Button';
 import { Stats } from '../../hooks/useProfile';
 import { HeroProfile } from '../../redux/heroSlice';
-import { H2 } from '../../styles/Fonts';
+import { H3 } from '../../styles/Fonts';
 import StatItem from './StatItem';
 
 interface StatsPanelProps {
@@ -15,6 +15,10 @@ interface StatsPanelProps {
 const Container = styled.div`
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 const RightContainer = styled.div`
@@ -22,6 +26,13 @@ const RightContainer = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     gap: 20px;
+
+    @media (max-width: 768px) {
+        margin-top: 40px;
+        h3 {
+            text-align: right;
+        }
+    }
 `;
 
 function StatsPanel(props: StatsPanelProps) {
@@ -67,7 +78,7 @@ function StatsPanel(props: StatsPanelProps) {
                 ))}
             </div>
             <RightContainer>
-                <H2>{`剩餘點數: ${stats.rest}`}</H2>
+                <H3>{`剩餘點數: ${stats.rest}`}</H3>
                 <Button onClick={() => handleOnSaveProfile(statItems)}>
                     儲存
                 </Button>

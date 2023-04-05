@@ -17,6 +17,10 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     padding: 12px 0;
+
+    @media (max-width: 768px) {
+        justify-content: space-between;
+    }
 `;
 
 const StateLabel = styled(H3)`
