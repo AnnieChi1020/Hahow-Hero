@@ -1,7 +1,6 @@
-import { render } from '@testing-library/react';
 import React from 'react';
+import { render } from '@testing-library/react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Hero } from '../../redux/heroSlice';
 import HeroList from './HeroList';
 
 jest.mock('react-router-dom', () => ({
@@ -9,42 +8,34 @@ jest.mock('react-router-dom', () => ({
     useParams: jest.fn(),
 }));
 
-describe('HeroList', () => {
+describe('HeroList component', () => {
     beforeEach(() => {
         (useNavigate as jest.Mock).mockReturnValue(jest.fn());
         (useParams as jest.Mock).mockReturnValue({});
     });
 
-    it('should render correctly', () => {
-        const heroList = [
-            {
-                id: '1',
-                name: 'Hero 1',
-                image: 'https://via.placeholder.com/150',
-                stats: { str: 5, int: 2, agi: 8, luk: 3, rest: 0 },
-            },
-            {
-                id: '2',
-                name: 'Hero 2',
-                image: 'https://via.placeholder.com/150',
-                stats: { str: 5, int: 2, agi: 8, luk: 3, rest: 0 },
-            },
-        ];
+    const mockHeroList = [
+        { id: '1', name: 'Batman', image: 'https://via.placeholder.com/150' },
+        { id: '2', name: 'Superman', image: 'https://via.placeholder.com/150' },
+        {
+            id: '3',
+            name: 'Spiderman',
+            image: 'https://via.placeholder.com/150',
+        },
+    ];
 
-        const { container } = render(
-            <HeroList heroList={heroList as Hero[]} />
+    it('should render a list of heroes', () => {
+        const { getAllByTestId } = render(<HeroList heroList={mockHeroList} />);
+
+        expect(getAllByTestId('hero-card-container')).toHaveLength(3);
+        expect(getAllByTestId('hero-card-container')[0]).toHaveTextContent(
+            'Batman'
         );
-
-        expect(container).toMatchSnapshot();
     });
 
-    it('should render correctly when there are no heroes', () => {
-        const heroList: Hero[] = [];
+    it('should render no heroes if the list is empty', () => {
+        const { queryAllByTestId } = render(<HeroList heroList={[]} />);
 
-        const { container } = render(
-            <HeroList heroList={heroList as Hero[]} />
-        );
-
-        expect(container).toMatchSnapshot();
+        expect(queryAllByTestId('hero-card-container')).toHaveLength(0);
     });
 });

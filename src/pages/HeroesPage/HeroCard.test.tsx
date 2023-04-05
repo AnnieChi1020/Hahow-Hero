@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-    render,
-    fireEvent,
-    getByText,
-    getByRole,
-    getByTestId,
-} from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { useNavigate, useParams } from 'react-router-dom';
 import HeroCard from './HeroCard';
 import Colors from '../../styles/Colors';
@@ -32,10 +26,10 @@ describe('HeroCard component', () => {
             image: 'https://example.com/image.jpg',
         };
 
-        const { container } = render(<HeroCard hero={hero} />);
+        const { getByText, getByRole } = render(<HeroCard hero={hero} />);
 
-        expect(getByText(container, 'Hero 1')).toBeInTheDocument();
-        expect(getByRole(container, 'img')).toHaveAttribute(
+        expect(getByText('Hero 1')).toBeInTheDocument();
+        expect(getByRole('img')).toHaveAttribute(
             'src',
             'https://example.com/image.jpg'
         );
@@ -48,9 +42,9 @@ describe('HeroCard component', () => {
             image: 'https://example.com/image.jpg',
         };
 
-        const { container } = render(<HeroCard hero={hero} />);
+        const { getByTestId } = render(<HeroCard hero={hero} />);
 
-        fireEvent.click(getByTestId(container, 'hero-card-container'));
+        fireEvent.click(getByTestId('hero-card-container'));
 
         expect(useNavigate).toHaveBeenCalled();
     });
@@ -64,9 +58,9 @@ describe('HeroCard component', () => {
 
         (useParams as jest.Mock).mockReturnValue({ heroId: '1' });
 
-        const { container } = render(<HeroCard hero={hero} />);
+        const { getByTestId } = render(<HeroCard hero={hero} />);
 
-        expect(getByTestId(container, 'hero-card-container')).toHaveStyle(
+        expect(getByTestId('hero-card-container')).toHaveStyle(
             `background-color: ${Colors.orange};`
         );
     });
@@ -80,9 +74,9 @@ describe('HeroCard component', () => {
 
         (useParams as jest.Mock).mockReturnValue({ heroId: '2' });
 
-        const { container } = render(<HeroCard hero={hero} />);
+        const { getByTestId } = render(<HeroCard hero={hero} />);
 
-        expect(getByTestId(container, 'hero-card-container')).toHaveStyle(
+        expect(getByTestId('hero-card-container')).toHaveStyle(
             `background-color: ${Colors.beige};`
         );
     });

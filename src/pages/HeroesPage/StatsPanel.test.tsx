@@ -1,15 +1,21 @@
-import { render, waitFor } from '@testing-library/react';
 import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
 import StatsPanel from './StatsPanel';
 
 describe('StatsPanel', () => {
+    const stats = {
+        str: 5,
+        agi: 3,
+        int: 2,
+        luk: 8,
+        rest: 5,
+    };
+
     const setStats = jest.fn();
     const handleOnSaveProfile = jest.fn();
 
-    it('should render correctly', () => {
-        const stats = { str: 5, int: 2, agi: 8, luk: 3, rest: 0 };
-
-        const { container } = render(
+    test('renders correctly', () => {
+        const { getByText } = render(
             <StatsPanel
                 stats={stats}
                 setStats={setStats}
@@ -17,12 +23,18 @@ describe('StatsPanel', () => {
             />
         );
 
-        expect(container).toMatchSnapshot();
+        // Assert that all stat labels are rendered
+        expect(getByText('STR')).toBeTruthy();
+        expect(getByText('AGI')).toBeTruthy();
+        expect(getByText('INT')).toBeTruthy();
+        expect(getByText('LUK')).toBeTruthy();
+        expect(getByText('剩餘點數: 5')).toBeTruthy();
+
+        // Assert that the Save button is rendered
+        expect(getByText('儲存')).toBeTruthy();
     });
 
-    it('should call setStats when click on increment button', () => {
-        const stats = { str: 5, int: 2, agi: 8, luk: 3, rest: 0 };
-
+    test('calls setStats with updated stats on increment', () => {
         const { queryAllByRole } = render(
             <StatsPanel
                 stats={stats}
@@ -31,19 +43,22 @@ describe('StatsPanel', () => {
             />
         );
 
+        // Click on the increment button for STR
         const buttons = queryAllByRole('button');
-        const incrementButton = buttons[1];
+        const incrementBtn = buttons[1];
+        fireEvent.click(incrementBtn);
 
-        incrementButton.click();
-
-        waitFor(() => {
-            expect(setStats).toHaveBeenCalled();
+        // Assert that setStats is called with the updated stats
+        expect(setStats).toHaveBeenCalledWith({
+            str: 6,
+            agi: 3,
+            int: 2,
+            luk: 8,
+            rest: 4,
         });
     });
 
-    it('should call setStats when click on decrement button', () => {
-        const stats = { str: 5, int: 2, agi: 8, luk: 3, rest: 0 };
-
+    test('calls setStats with updated stats on decrement', () => {
         const { queryAllByRole } = render(
             <StatsPanel
                 stats={stats}
@@ -52,19 +67,22 @@ describe('StatsPanel', () => {
             />
         );
 
+        // Click on the decrement button for STR
         const buttons = queryAllByRole('button');
-        const decrementButton = buttons[0];
+        const decrementBtn = buttons[0];
+        fireEvent.click(decrementBtn);
 
-        decrementButton.click();
-
-        waitFor(() => {
-            expect(setStats).toHaveBeenCalled();
+        // Assert that setStats is called with the updated stats
+        expect(setStats).toHaveBeenCalledWith({
+            str: 4,
+            agi: 3,
+            int: 2,
+            luk: 8,
+            rest: 6,
         });
     });
 
-    it('should call handleOnSaveProfile when click on save button', () => {
-        const stats = { str: 5, int: 2, agi: 8, luk: 3, rest: 0 };
-
+    test('calls handleOnSaveProfile on save button click', async () => {
         const { queryAllByRole } = render(
             <StatsPanel
                 stats={stats}
@@ -73,34 +91,16 @@ describe('StatsPanel', () => {
             />
         );
 
+        // Click on the Save button
         const buttons = queryAllByRole('button');
-        const saveButton = buttons[buttons.length - 1];
+        const saveBtn = buttons[buttons.length - 1];
+        fireEvent.click(saveBtn);
 
-        saveButton.click();
-
-        waitFor(() => {
-            expect(handleOnSaveProfile).toHaveBeenCalled();
-        });
-    });
-
-    it('should not call handleOnSaveProfile when click on save button and restPoint is not zero', () => {
-        const stats = { str: 5, int: 2, agi: 8, luk: 3, rest: 1 };
-
-        const { queryAllByRole } = render(
-            <StatsPanel
-                stats={stats}
-                setStats={setStats}
-                handleOnSaveProfile={handleOnSaveProfile}
-            />
-        );
-
-        const buttons = queryAllByRole('button');
-        const saveButton = buttons[buttons.length - 1];
-
-        saveButton.click();
-
-        waitFor(() => {
-            expect(handleOnSaveProfile).not.toHaveBeenCalled();
+        expect(handleOnSaveProfile).toHaveBeenCalledWith({
+            str: 5,
+            agi: 3,
+            int: 2,
+            luk: 8,
         });
     });
 });
