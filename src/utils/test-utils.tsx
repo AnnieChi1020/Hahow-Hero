@@ -1,8 +1,8 @@
 import React, { PropsWithChildren } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { render, RenderOptions } from '@testing-library/react';
 import { configureStore, PreloadedState } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-// As a basic setup, import your same slice reducers
 import heroReducer, { initialState } from '../redux/heroSlice';
 import { RootState, AppStore } from '../redux/store';
 
