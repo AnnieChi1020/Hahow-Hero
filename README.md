@@ -15,22 +15,23 @@ Requirement: [Hahow Front-End Assignment](https://github.com/hahow/hahow-recruit
 
 ```bash
 ├── src/
-│   ├── components/   # 可複用的 components
-│   ├── hooks/        # 可以複用的 custom hooks，將資料處理獨立出來
-│   ├── pages/        # 儲存 page components
-│   ├── redux/        # redux 相關的 code 
+│   ├── components/     # 可複用的 components
+│   ├── hooks/          # 可以複用的 custom hooks，將資料處理獨立出來
+│   ├── pages/          # 儲存 page components
+│   ├── redux/          # redux 相關的 code 
 │   │   └── *.ts    
-│   ├── styles/       # style 相關，如 Colors、Typography
-│   ├── utils/        # 一些重複使用的工具函式
+│   ├── styles/         # style 相關，如 Colors、Typography
+│   ├── utils/          # 一些重複使用的工具函式
 │   │   ├── *.tsx   
 │   │   └── *.ts           
-│   ├── App.js                
-│   └──index.js               
-├── .eslintrc.js      # eslint 設定檔
+│   ├── App.tsx 
+│   ├── AppRouter.tsx   # 管理 app 的路由              
+│   └──index.tex               
+├── .eslintrc.js        # eslint 設定檔
 ├── .gitignore          
 ├── package.json
 ├── README.md
-├── tsconfig          # ts 設定檔
+├── tsconfig            # ts 設定檔
 └── yarn.lock
 ```
 
