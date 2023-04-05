@@ -33,8 +33,6 @@ Requirement: [Hahow Front-End Assignment](https://github.com/hahow/hahow-recruit
 └── yarn.lock
 ```
 
-
-
 ## 使用到的第三方 library
 
 ### **@reduxjs/toolkit**
@@ -99,9 +97,17 @@ Requirement: [Hahow Front-End Assignment](https://github.com/hahow/hahow-recruit
 
 ## 遇到什麼狀況會寫註解
 
-- 大多是跟資料邏輯相關的會寫註解，幫助之後看 code 的人可以理解資料管理、更新的邏輯
-  - e.g. `useProfile.ts` 中，會註解資料更新的方式，以及更新的時機
-- 有些 test case 會加上註解，目的是幫助之後改 code 時還可以記得這邊想要測試的內容是什麼
+ 1. 說明比較複雜的邏輯：
+
+    像是跟資料邏輯相關的 code，幫助之後看 code 的人可以理解資料管理、更新的邏輯
+    e.g. `useProfile.ts` 中，會註解資料更新的方式、來源，以及更新的時機
+
+ 2. 有些 test case 會加上註解，目的是幫助之後改 code 時還可以記得這邊想要測試的內容是什麼
+
+ 3. 說明外部 API 的用途：
+
+    幫助紀錄 API 的使用方式，以及預期會收到的資料內容
+    e.g. `api.ts` 中，會用 JSDoc 說明 params 以及 return value
 
 ## 專案中你遇到的困難、問題，以及解決的方法
 
