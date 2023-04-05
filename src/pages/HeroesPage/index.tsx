@@ -27,8 +27,11 @@ const ProfileContainer = styled.div`
 `;
 
 const SubContainer = styled.div`
+    width: 100%;
     padding: 60px;
     color: ${Colors.gray5};
+    display: flex;
+    justify-content: center;
 `;
 
 function HeroesPage() {

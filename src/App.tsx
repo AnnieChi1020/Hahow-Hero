@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { ToastContainer, Flip } from 'react-toastify';
 import AppRouter from './AppRouter';
 import { GlobalStyle, ResetStyle } from './styles/globalStyle';
