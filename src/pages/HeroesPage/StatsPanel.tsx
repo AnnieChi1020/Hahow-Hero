@@ -17,8 +17,6 @@ const Container = styled.div`
     justify-content: space-between;
 `;
 
-const LeftContainer = styled.div``;
-
 const RightContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -52,7 +50,7 @@ function StatsPanel(props: StatsPanelProps) {
 
     return (
         <Container>
-            <LeftContainer>
+            <div>
                 {Object.keys(statItems).map((stat) => (
                     <StatItem
                         key={stat}
@@ -67,7 +65,7 @@ function StatsPanel(props: StatsPanelProps) {
                         restPoint={stats.rest}
                     />
                 ))}
-            </LeftContainer>
+            </div>
             <RightContainer>
                 <H2>{`剩餘點數: ${stats.rest}`}</H2>
                 <Button onClick={() => handleOnSaveProfile(statItems)}>

@@ -46,8 +46,6 @@ const Image = styled.img`
     object-fit: cover;
 `;
 
-const TextContainer = styled.div``;
-
 function HeroCard(props: HeroCardProps) {
     const { hero } = props;
     const { id, name, image } = hero;
@@ -66,9 +64,9 @@ function HeroCard(props: HeroCardProps) {
             <ImageContainer>
                 <Image src={image} />
             </ImageContainer>
-            <TextContainer>
+            <div>
                 <H2>{name}</H2>
-            </TextContainer>
+            </div>
         </Container>
     );
 }

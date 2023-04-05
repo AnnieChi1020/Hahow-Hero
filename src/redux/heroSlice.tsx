@@ -18,11 +18,13 @@ interface HeroProps {
     heroProfiles: {
         [key: string]: HeroProfile;
     };
+    heroProfileIsFetching: boolean;
 }
 
-const initialState: HeroProps = {
+export const initialState: HeroProps = {
     heroList: [],
     heroProfiles: {},
+    heroProfileIsFetching: false,
 };
 
 const heroSlice = createSlice({
@@ -36,9 +38,13 @@ const heroSlice = createSlice({
             const { heroId, profile } = action.payload;
             state.heroProfiles[heroId] = profile;
         },
+        setHeroProfileIsFetching(state, action) {
+            state.heroProfileIsFetching = action.payload;
+        },
     },
 });
 
-export const { setHeroList, setHeroProfile } = heroSlice.actions;
+export const { setHeroList, setHeroProfile, setHeroProfileIsFetching } =
+    heroSlice.actions;
 
 export default heroSlice.reducer;
