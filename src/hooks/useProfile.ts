@@ -13,7 +13,9 @@ export interface Stats extends HeroProfile {
 const useProfile = () => {
     const { heroId } = useParams();
 
-    const heroProfiles = useAppSelector((state) => state.hero.heroProfiles);
+    const { heroProfiles, heroProfileIsFetching } = useAppSelector(
+        (state) => state.hero
+    );
 
     const [stats, setStats] = useState<Stats | null>(null);
 
@@ -26,7 +28,7 @@ const useProfile = () => {
     }, [heroId]);
 
     // Get hero profile from server and update redux store
-    const updateProfile = useCallback(() => {
+    const updateProfile = useCallback(async () => {
         if (heroId) {
             dispatch(getHeroProfile(heroId));
         }
@@ -57,7 +59,12 @@ const useProfile = () => {
         }
     };
 
-    return { stats, setStats, handleOnSaveProfile };
+    return {
+        stats,
+        setStats,
+        handleOnSaveProfile,
+        isFetching: heroProfileIsFetching,
+    };
 };
 
 export default useProfile;

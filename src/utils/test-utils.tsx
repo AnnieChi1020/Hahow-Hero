@@ -3,7 +3,7 @@ import { render, RenderOptions } from '@testing-library/react';
 import { configureStore, PreloadedState } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 // As a basic setup, import your same slice reducers
-import heroReducer from '../redux/heroSlice';
+import heroReducer, { initialState } from '../redux/heroSlice';
 import { RootState, AppStore } from '../redux/store';
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
@@ -14,7 +14,7 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
 export function renderWithProviders(
     ui: React.ReactElement,
     {
-        preloadedState = { hero: { heroList: [], heroProfiles: {} } },
+        preloadedState = { hero: initialState },
         // Automatically create a store instance if no store was passed in
         store = configureStore({
             reducer: { hero: heroReducer },
@@ -31,7 +31,7 @@ export function renderWithProviders(
 }
 
 export function getWrapper() {
-    const preloadedState = { hero: { heroList: [], heroProfiles: {} } };
+    const preloadedState = { hero: initialState };
     const store: AppStore = configureStore({
         reducer: { hero: heroReducer },
         preloadedState,

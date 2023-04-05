@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
+import { ClipLoader } from 'react-spinners';
 import HeroList from './HeroList';
 import StatsPanel from './StatsPanel';
 import Colors from '../../styles/Colors';
 import useHeroes from '../../hooks/useHeroes';
 import useProfile from '../../hooks/useProfile';
+import { H3 } from '../../styles/Fonts';
 
 const Container = styled.div`
     display: flex;
@@ -20,24 +22,45 @@ const ProfileContainer = styled.div`
     border-radius: 12px;
 `;
 
+const SubContainer = styled.div`
+    padding: 60px;
+    color: ${Colors.gray5};
+`;
+
 function HeroesPage() {
     const heroList = useHeroes();
-    const { stats, setStats, handleOnSaveProfile } = useProfile();
+    const { stats, setStats, handleOnSaveProfile, isFetching } = useProfile();
 
     const { heroId } = useParams();
-    const showProfile = heroId && stats;
+
+    const showProfile = !isFetching && stats;
+    const showNoRecord = !isFetching && !stats;
 
     return (
         <Container>
             <HeroList heroList={heroList} />
-            {showProfile && (
-                <ProfileContainer>
-                    <StatsPanel
-                        stats={stats}
-                        setStats={setStats}
-                        handleOnSaveProfile={handleOnSaveProfile}
-                    />
-                </ProfileContainer>
+            {heroId && (
+                <>
+                    {isFetching && (
+                        <SubContainer>
+                            <ClipLoader color={Colors.orange} size={60} />
+                        </SubContainer>
+                    )}
+                    {showProfile && (
+                        <ProfileContainer>
+                            <StatsPanel
+                                stats={stats}
+                                setStats={setStats}
+                                handleOnSaveProfile={handleOnSaveProfile}
+                            />
+                        </ProfileContainer>
+                    )}
+                    {showNoRecord && (
+                        <SubContainer>
+                            <H3>Cannot Find the Profile</H3>
+                        </SubContainer>
+                    )}
+                </>
             )}
         </Container>
     );

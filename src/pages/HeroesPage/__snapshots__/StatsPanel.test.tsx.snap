@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatsPanel should render correctly 1`] = `
+<div>
+  <div
+    class="sc-jsMahE kAzAbn"
+  >
+    <div
+      class="sc-kFuwaP"
+    >
+      <div
+        class="sc-gLDzan IUsCp"
+      >
+        <h3
+          class="sc-hLseeU sc-iAEyYk jaQnIa gpwMbS"
+        >
+          STR
+        </h3>
+        <button
+          class="sc-beqWaB gRbeAN"
+        >
+          <h3
+            class="sc-hLseeU sc-qRumB jaQnIa dNNzgk"
+          >
+            -
+          </h3>
+        </button>
+        <h3
+          class="sc-hLseeU sc-fsQiph jaQnIa gYRmdc"
+        >
+          5
+        </h3>
+        <button
+          class="sc-beqWaB cmFagU"
+          disabled=""
+        >
+          <h3
+            class="sc-hLseeU sc-qRumB jaQnIa dNNzgk"
+          >
+            +
+          </h3>
+        </button>
+      </div>
+      <div
+        class="sc-gLDzan IUsCp"
+      >
+        <h3
+          class="sc-hLseeU sc-iAEyYk jaQnIa gpwMbS"
+        >
+          INT
+        </h3>
+        <button
+          class="sc-beqWaB gRbeAN"
+        >
+          <h3
+            class="sc-hLseeU sc-qRumB jaQnIa dNNzgk"
+          >
+            -
+          </h3>
+        </button>
+        <h3
+          class="sc-hLseeU sc-fsQiph jaQnIa gYRmdc"
+        >
+          2
+        </h3>
+        <button
+          class="sc-beqWaB cmFagU"
+          disabled=""
+        >
+          <h3
+            class="sc-hLseeU sc-qRumB jaQnIa dNNzgk"
+          >
+            +
+          </h3>
+        </button>
+      </div>
+      <div
+        class="sc-gLDzan IUsCp"
+      >
+        <h3
+          class="sc-hLseeU sc-iAEyYk jaQnIa gpwMbS"
+        >
+          AGI
+        </h3>
+        <button
+          class="sc-beqWaB gRbeAN"
+        >
+          <h3
+            class="sc-hLseeU sc-qRumB jaQnIa dNNzgk"
+          >
+            -
+          </h3>
+        </button>
+        <h3
+          class="sc-hLseeU sc-fsQiph jaQnIa gYRmdc"
+        >
+          8
+        </h3>
+        <button
+          class="sc-beqWaB cmFagU"
+          disabled=""
+        >
+          <h3
+            class="sc-hLseeU sc-qRumB jaQnIa dNNzgk"
+          >
+            +
+          </h3>
+        </button>
+      </div>
+      <div
+        class="sc-gLDzan IUsCp"
+      >
+        <h3
+          class="sc-hLseeU sc-iAEyYk jaQnIa gpwMbS"
+        >
+          LUK
+        </h3>
+        <button
+          class="sc-beqWaB gRbeAN"
+        >
+          <h3
+            class="sc-hLseeU sc-qRumB jaQnIa dNNzgk"
+          >
+            -
+          </h3>
+        </button>
+        <h3
+          class="sc-hLseeU sc-fsQiph jaQnIa gYRmdc"
+        >
+          3
+        </h3>
+        <button
+          class="sc-beqWaB cmFagU"
+          disabled=""
+        >
+          <h3
+            class="sc-hLseeU sc-qRumB jaQnIa dNNzgk"
+          >
+            +
+          </h3>
+        </button>
+      </div>
+    </div>
+    <div
+      class="sc-irTswW cXMkzs"
+    >
+      <h2
+        class="sc-dmqHEX iDIKHP"
+      >
+        剩餘點數: 0
+      </h2>
+      <button
+        class="sc-beqWaB gRbeAN"
+      >
+        儲存
+      </button>
+    </div>
+  </div>
+</div>
+`;
