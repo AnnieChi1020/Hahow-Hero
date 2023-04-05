@@ -37,7 +37,8 @@ function HeroesPage() {
 
     const { heroId } = useParams();
 
-    const showProfile = !isFetching && stats;
+    const showLoader = isFetching && !stats;
+    const showProfile = stats;
     const showNoRecord = !isFetching && !stats;
 
     return (
@@ -45,7 +46,7 @@ function HeroesPage() {
             <HeroList heroList={heroList} />
             {heroId && (
                 <>
-                    {isFetching && (
+                    {showLoader && (
                         <SubContainer>
                             <ClipLoader
                                 color={Colors.orange}
