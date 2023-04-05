@@ -43,7 +43,11 @@ function HeroesPage() {
                 <>
                     {isFetching && (
                         <SubContainer>
-                            <ClipLoader color={Colors.orange} size={60} />
+                            <ClipLoader
+                                color={Colors.orange}
+                                size={60}
+                                data-testid="loader"
+                            />
                         </SubContainer>
                     )}
                     {showProfile && (
